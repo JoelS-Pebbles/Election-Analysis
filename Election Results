@@ -1,0 +1,308 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "name": "Untitled0.ipynb",
+      "provenance": [],
+      "collapsed_sections": [],
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/JoelS-Pebbles/Election-Analysis/blob/master/Election%20Results\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "J5GDoY2pKXFI",
+        "colab_type": "code",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 55
+        },
+        "outputId": "96be48a7-7fd0-4ce6-80d7-15ca591e8e1e"
+      },
+      "source": [
+        "import csv\n",
+        "dir(csv)\n",
+        "file_to_load = '/Election_Analysis/Resources/election_results.csv'\n",
+        "with open(file_to_load) as election_data:\n",
+        "    print (election_data)"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "<_io.TextIOWrapper name='/Election_Analysis/Resources/election_results.csv' mode='r' encoding='UTF-8'>\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "8eDUXCcbfxd7",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "import csv\n",
+        "import os\n",
+        "file_to_save=os.path.join(\"/Election_Analysis/analysis\",\"election_analysis.txt\")\n",
+        "with open(file_to_save,\"w\")as txt_file:\n",
+        "  txt_file.write(\"Counties in the Election\\n-------------------\\nArapahoe\\nDenver\\nJefferson\")\n",
+        "\n"
+      ],
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "hZmNotA8bkqy",
+        "colab_type": "code",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 35
+        },
+        "outputId": "97156e22-d1bd-4d5a-da7a-bf3cdba29462"
+      },
+      "source": [
+        "import csv\n",
+        "import os\n",
+        "file_to_load=os.path.join('/Election_Analysis/Resources/election_results.csv')\n",
+        "file_to_save=os.path.join(\"/Election_Analysis/Analysis/election_analysis.txt\")\n",
+        "with open(file_to_load)as election_data:\n",
+        "  file_reader=csv.reader(election_data)\n",
+        "  headers=next(file_reader)\n",
+        "  print(headers)"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "['Ballot ID', 'County', 'Candidate']\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "HY0o96-ScsO2",
+        "colab_type": "code",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 35
+        },
+        "outputId": "c1161ae1-0497-4253-a950-f164f2f6eb03"
+      },
+      "source": [
+        "import csv\n",
+        "import os\n",
+        "file_to_load=os.path.join('/Election_Analysis/Resources/election_results.csv')\n",
+        "file_to_save=os.path.join(\"/Election_Analysis/Analysis/election_analysis.txt\")\n",
+        "total_votes=0\n",
+        "with open(file_to_load)as election_data:\n",
+        "  file_reader=csv.reader(election_data)\n",
+        "  headers=next(file_reader)\n",
+        "  for row in file_reader:\n",
+        "    total_votes+=1\n",
+        "print(total_votes)"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "369711\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "DgD780wTmyOH",
+        "colab_type": "code",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 35
+        },
+        "outputId": "a07734e8-782e-4113-8007-8162fa7a77db"
+      },
+      "source": [
+        "import csv\n",
+        "import os\n",
+        "file_to_load=os.path.join('/content/Election-Analysis/Resources/election_results.csv')\n",
+        "file_to_save=os.path.join(\"/content/Election-Analysis/analysis/election_analysis.txt\")\n",
+        "total_votes=0\n",
+        "candidate_options=[]\n",
+        "with open(file_to_load)as election_data:\n",
+        "  file_reader=csv.reader(election_data)\n",
+        "  headers=next(file_reader)\n",
+        "  for row in file_reader:\n",
+        "    total_votes+=1\n",
+        "    candidate_name=row[2]\n",
+        "    if candidate_name not in candidate_options:\n",
+        "      candidate_options.append(candidate_name)\n",
+        "print(candidate_options)"
+      ],
+      "execution_count": 3,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "['Charles Casper Stockham', 'Diana DeGette', 'Raymon Anthony Doane']\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "3pJY3CjIrvx2",
+        "colab_type": "code",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 55
+        },
+        "outputId": "a1c821cd-3de1-4421-f3df-0411408c2e43"
+      },
+      "source": [
+        "import csv\n",
+        "import os\n",
+        "file_to_load=os.path.join('/content/Election-Analysis/Resources/election_results.csv')\n",
+        "file_to_save=os.path.join(\"/content/Election-Analysis/analysis/election_analysis.txt\")\n",
+        "total_votes=0\n",
+        "candidate_options=[]\n",
+        "candidate_votes={}\n",
+        "with open(file_to_load)as election_data:\n",
+        "  file_reader=csv.reader(election_data)\n",
+        "  headers=next(file_reader)\n",
+        "  for row in file_reader:\n",
+        "    total_votes+=1\n",
+        "    candidate_name=row[2]\n",
+        "    if candidate_name not in candidate_options:\n",
+        "      candidate_options.append(candidate_name)\n",
+        "      candidate_votes[candidate_name]=0\n",
+        "    candidate_votes[candidate_name]+=1\n",
+        "print(candidate_votes)"
+      ],
+      "execution_count": 9,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "{'Charles Casper Stockham': 85213, 'Diana DeGette': 272892, 'Raymon Anthony Doane': 11606}\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "qXmcYVfGPxYT",
+        "colab_type": "code",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 69
+        },
+        "outputId": "e6401272-5112-4475-913a-5002f67f988a"
+      },
+      "source": [
+        "#Determine the precentage of votes for each candidate by looping through the counts\n",
+        "\n",
+        "for candidate_name in candidate_votes:\n",
+        "  votes=candidate_votes[candidate_name]\n",
+        "  vote_percentage=float(votes)/float(total_votes)*100\n",
+        "  print(f\"{candidate_name}:received{vote_percentage}% of the vote.\")"
+      ],
+      "execution_count": 11,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Charles Casper Stockham:received23.04854332167558% of the vote.\n",
+            "Diana DeGette:received73.81224794501652% of the vote.\n",
+            "Raymon Anthony Doane:received3.1392087333079077% of the vote.\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "EzoNoRUrReE_",
+        "colab_type": "code",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 225
+        },
+        "outputId": "b8ca5e61-84f8-4a08-93fa-43fda9c7243b"
+      },
+      "source": [
+        "winning_candidate=\"\"\n",
+        "winning_count=0\n",
+        "winning_percentage=0\n",
+        "for candidate_name in candidate_votes:\n",
+        "  votes=candidate_votes[candidate_name]\n",
+        "  vote_percentage=float(votes)/float(total_votes)*100\n",
+        "  print(f\"{candidate_name}: {vote_percentage:.1f}%({votes:,})\\n\")\n",
+        "  if (votes>winning_count)and(vote_percentage>winning_percentage):\n",
+        "    winning_count=votes\n",
+        "    winning_percentage=vote_percentage\n",
+        "    winning_candidate=candidate_name\n",
+        "winning_candidate_summary=(\n",
+        " f\"---------------------------\\n\"\n",
+        " f\"Winner:{winning_candidate}\\n\"\n",
+        " f\"Winning Vote Count: {winning_count:,}\\n\"\n",
+        " f\"Winning Percentage: {winning_percentage:.1f}%\\n\"\n",
+        " f\"---------------------------\\n\")\n",
+        "print(winning_candidate_summary)\n"
+      ],
+      "execution_count": 56,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Charles Casper Stockham: 23.0%(85,213)\n",
+            "\n",
+            "Diana DeGette: 73.8%(272,892)\n",
+            "\n",
+            "Raymon Anthony Doane: 3.1%(11,606)\n",
+            "\n",
+            "---------------------------\n",
+            "Winner:Diana DeGette\n",
+            "Winning Vote Count: 272,892\n",
+            "Winning Percentage: 73.8%\n",
+            "---------------------------\n",
+            "\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    }
+  ]
+}
