@@ -28,5 +28,9 @@ The winner of the election was:
   Diana who received 73.8% of the votes with 272,892 total votes. 
   
   ## Challenge Overview
+  The purpose of the election audit was to see who won the election. The analsyis also revealed how many votes and what percentage of votes that the candidates received. The results also showed the voter turnout of the each of the three counties. 
   
+  ## Election-Audit Results
+  * There were 369,711 total votes cast in the election.
+  *
   ## Challenge Summary
