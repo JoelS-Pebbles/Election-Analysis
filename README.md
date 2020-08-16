@@ -40,7 +40,8 @@ The winner of the election was:
   * Diana DeGette received 73.8% of the votes with 272,892 total votes. 
   * Raymon Anthony Doane received 3.1% of the votes with 11,606 total votes.
   * Diana DeGette won the election with 73.8% of the votes and 272,892 total votes. 
-  ![challege three pic]https://github.com/JoelS-Pebbles/Election-Analysis/blob/master/challege%20three%20pic.PNG
+  
+![challege three pic]https://github.com/JoelS-Pebbles/Election-Analysis/blob/master/challege%20three%20pic.PNG
   
   ## Challenge Summary
   There was a list of votes, each one coming from one of the three counties and each vote was for one of the three candidates. My job was to analyze the data and figure out which candidate won, what were the candidate's voting percentage and how many votes they got. The results also showed the the county vote percentage and the number of votes per county.
